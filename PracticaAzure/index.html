@@ -2,19 +2,25 @@
 <html>
 <head>
   <title>Taller de Coches</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <h1>Taller de Coches</h1>
+  <form id="carForm">
+    <label for="carMake">Marca:</label>
+    <input type="text" id="carMake" name="carMake" required>
 
-  <ul class="car-list" id="carList"></ul>
+    <label for="carModel">Modelo:</label>
+    <input type="text" id="carModel" name="carModel" required>
 
-  <form class="add-car-form" id="addCarForm">
-    <input type="text" id="makeInput" placeholder="Marca" required>
-    <input type="text" id="modelInput" placeholder="Modelo" required>
     <button type="submit">Agregar Coche</button>
   </form>
 
-  <script src="script.js"></script>
+  <div id="carList">
+    <h2>Listado de Coches</h2>
+    <ul id="cars"></ul>
+  </div>
+
+  <script src="java.js"></script>
 </body>
 </html>
