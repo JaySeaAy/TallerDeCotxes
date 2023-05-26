@@ -37,3 +37,32 @@ function borrarCoche() {
     // Mostrar la lista actualizada
     mostrarCoches();
   }
+
+  function buscarFotoCoche() {
+    const marca = document.getElementById('marca-foto-input').value;
+    const modelo = document.getElementById('modelo-foto-input').value;
+  
+    // Realizar la solicitud HTTP a la función de Azure Functions
+    fetch('URL_DE_TU_FUNCION_AZURE', {
+      method: 'POST',
+      body: JSON.stringify({ marca, modelo })
+    })
+    .then(response => response.json())
+    .then(data => {
+      const listaFotos = document.getElementById('fotos-lista');
+      listaFotos.innerHTML = '';
+  
+      // Iterar sobre las fotos recibidas y mostrarlas en el HTML
+      data.forEach(foto => {
+        const item = document.createElement('li');
+        const imagen = document.createElement('img');
+        imagen.src = foto;
+        item.appendChild(imagen);
+        listaFotos.appendChild(item);
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      // Manejar el error de solicitud
+    });
+  }
