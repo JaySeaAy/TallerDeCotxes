@@ -5,18 +5,26 @@
   </head>
   <body>
     <h1>Lista de Coches</h1>
-    <input type="text" id="nombre-input" placeholder="Nombre del coche">
-    <input type="text" id="modelo-input" placeholder="Modelo del coche">
-    <button onclick="agregarCocheHTML()">Agregar Coche</button>
-    <ul id="coches-lista"></ul>
+      <input type="text" id="nombre-input" placeholder="Nombre del coche">
+      <input type="text" id="modelo-input" placeholder="Modelo del coche">
+      <button onclick="agregarCocheHTML()">Agregar Coche</button>
+      <ul id="coches-lista"></ul>
 
     <h2>Borrar Coche</h2>
-    <input type="text" id="borrar-marca-input" placeholder="Marca del coche">
-    <input type="text" id="borrar-modelo-input" placeholder="Modelo del coche">
-    <button onclick="borrarCoche()">Borrar Coche</button>
+      <input type="text" id="borrar-marca-input" placeholder="Marca del coche">
+      <input type="text" id="borrar-modelo-input" placeholder="Modelo del coche">
+      <button onclick="borrarCoche()">Borrar Coche</button>
 
     <p>
       <button id="mostrar-coches-btn" onclick="mostrarCoches()">Mostrar Coches</button>
     </p>
+
+    <h2>Buscar Foto de Coche</h2>
+      <input type="text" id="marca-foto-input" placeholder="Marca del coche">
+      <input type="text" id="modelo-foto-input" placeholder="Modelo del coche">
+      <button onclick="buscarFotoCoche()">Buscar Foto</button>  
+    <h2>Fotos del Coche</h2>
+    <ul id="fotos-lista"></ul>
+
   </body>
 </html>
