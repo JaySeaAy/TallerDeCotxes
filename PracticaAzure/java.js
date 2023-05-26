@@ -35,18 +35,14 @@ function addCar(event) {
 
     makeInput.value = '';
     modelInput.value = '';
-
-    displayCars();
   }
 }
 
 // Función para eliminar un coche
 function deleteCar(index) {
   cars.splice(index, 1);
-  displayCars();
 }
 
-displayCars();
 
 // Event Listener para el formulario de agregar coche
 const addCarForm = document.getElementById('addCarForm');
@@ -96,3 +92,57 @@ document.getElementById("carForm").addEventListener("submit", function(event) {
   document.getElementById("carMake").value = "";
   document.getElementById("carModel").value = "";
 });
+
+function showCars() {
+  const request = new sql.Request();
+  const query = "SELECT Marca, Modelo FROM Coches";
+  request.query(query, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      // Limpiar la lista antes de mostrar los coches
+      document.getElementById("cars").innerHTML = "";
+
+      // Recorrer los resultados y mostrar los coches en la lista
+      result.recordset.forEach(function(car) {
+        var carItem = document.createElement("li");
+        carItem.textContent = car.Marca + " " + car.Modelo;
+        document.getElementById("cars").appendChild(carItem);
+      });
+    }
+  });
+}
+
+document.getElementById("showCarsButton").addEventListener("click", function() {
+  showCars();
+});
+
+document.getElementById("carForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var carMake = document.getElementById("carMake").value;
+  var carModel = document.getElementById("carModel").value;
+
+  // Agregar el coche a la base de datos
+  addCar(carMake, carModel);
+
+  var carItem = document.createElement("li");
+  carItem.textContent = carMake + " " + carModel;
+
+  document.getElementById("cars").appendChild(carItem);
+
+  document.getElementById("carMake").value = "";
+  document.getElementById("carModel").value = "";
+});
+
+function addCar(make, model) {
+  const request = new sql.Request();
+  const query = `INSERT INTO Coches (Marca, Modelo) VALUES ('${make}', '${model}')`;
+  request.query(query, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Coche agregado a la base de datos");
+    }
+  });
+}

@@ -1,26 +1,22 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>Taller de Coches</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <h1>Taller de Coches</h1>
-  <form id="carForm">
-    <label for="carMake">Marca:</label>
-    <input type="text" id="carMake" name="carMake" required>
+  <head>
+    <title>Lista de Coches</title>
+    <script src="java2.js"></script>
+  </head>
+  <body>
+    <h1>Lista de Coches</h1>
+    <input type="text" id="nombre-input" placeholder="Nombre del coche">
+    <input type="text" id="modelo-input" placeholder="Modelo del coche">
+    <button onclick="agregarCocheHTML()">Agregar Coche</button>
+    <ul id="coches-lista"></ul>
 
-    <label for="carModel">Modelo:</label>
-    <input type="text" id="carModel" name="carModel" required>
+    <h2>Borrar Coche</h2>
+    <input type="text" id="borrar-marca-input" placeholder="Marca del coche">
+    <input type="text" id="borrar-modelo-input" placeholder="Modelo del coche">
+    <button onclick="borrarCoche()">Borrar Coche</button>
 
-    <button type="submit">Agregar Coche</button>
-  </form>
-
-  <div id="carList">
-    <h2>Listado de Coches</h2>
-    <ul id="cars"></ul>
-  </div>
-
-  <script src="java.js"></script>
-</body>
+    <p>
+      <button id="mostrar-coches-btn" onclick="mostrarCoches()">Mostrar Coches</button>
+    </p>
+  </body>
 </html>
