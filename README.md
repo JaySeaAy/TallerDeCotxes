@@ -1,5 +1,3 @@
-Based on the codebase context, you're asking me to create a README for the TallerDeCotxes car management system. <cite/> This system is a web-based application for managing car records with photo search functionality, built using HTML, JavaScript, and cloud services integration.
-
 # TallerDeCotxes - Car Management System
 
 A web-based car management application that allows users to add, delete, display, and search for car records with integrated photo functionality.
